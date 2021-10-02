@@ -1,0 +1,5 @@
+.f{
+    flex-direction: column;
+-moz-box-orient: vertical;
+-moz-box-direction: normal;
+}

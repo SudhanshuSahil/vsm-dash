@@ -19,6 +19,9 @@ export class TimerComponent implements OnInit {
   demat;
 
   config = {};
+
+  media;
+  sponsors;
   
   constructor(private http: HttpClient) { }
 
@@ -45,14 +48,14 @@ export class TimerComponent implements OnInit {
     console.log('yaha aaya');
     var access_token = localStorage.getItem('token');
     var header = new HttpHeaders({
-      'Authorization': "Bearer " + access_token 
+      'Authorization': "Token " + access_token 
     });
 
     var body = new FormData();
 
     body.append('demat_accout', this.demat);
 
-    this.http.patch<any>("https://django.ecell.in/vsm/me/", body,  {headers: header}).subscribe(
+    this.http.patch<any>("https://api5.ecell.in/vsm/me/", body,  {headers: header}).subscribe(
       data => {
         // console.log(data);
         alert('Your Demat account ID has been noted')
@@ -70,13 +73,26 @@ export class TimerComponent implements OnInit {
   ngOnInit(): void {
     var access_token = localStorage.getItem('token');
     var header = new HttpHeaders({
-      'Authorization': "Bearer " + access_token 
+      'Authorization': "Token " + access_token 
     });
     
-    this.http.get<any>("https://django.ecell.in/vsm/me/", {headers: header}).subscribe(
+    // this.http.get<any>("https://api5.ecell.in/vsm/me/", {headers: header}).subscribe(
+    //   data => {
+    //     // console.log(data)
+    //     this.demat = data['demat_accout']
+    //   },
+    //   error => {
+    //     console.log(error);
+        
+    //   }
+    // )
+
+    this.http.get<any>("https://api3.ecell.in/vsm/partners/").subscribe(
       data => {
-        // console.log(data)
-        this.demat = data['demat_accout']
+        // alert('Your Demat account ID has been noted')
+        this.media = data.media
+        this.sponsors  = data.sponsors
+        console.log(this.media);
       },
       error => {
         console.log(error);

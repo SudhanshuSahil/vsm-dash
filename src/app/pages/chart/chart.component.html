@@ -1,0 +1,100 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 300px; background-image: url(assets/img/icons/common/watch.jpg); background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <!-- <span class="mask opacity-8" style="background: linear-gradient(to right,#673400, #834200, #964b00, #a4550a, #b6551d);"></span> -->
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+      <div class="row">
+        <div class="col-lg-7 col-md-10">
+          <h1 class="display-2 text-white"></h1>
+          <!-- <p class="text-white mt-0 mb-5">ssss</p> -->
+          <!-- <a (click)="update_profile()" class="btn btn-info">Edit profile</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid mt--7">
+    <div class="card shadow border-0">
+      <div class="container h-100" style="padding-top: 2em; padding-bottom: 8em;">
+        <div class="row h-100 justify-content-center align-items-center text-center">
+          <form class="col-12">
+            <!-- <div class="form-group"> -->
+              <!-- <h1 style="font-size: 2em;">COMING SOON</h1> -->
+              <!-- <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input"> -->
+            <!-- </div> -->
+            <!-- <hr> -->
+            <div class="form-group py-4">
+  
+              <div style="display: block;">
+                <canvas baseChart width="400" height="200"
+                  [datasets]="lineChartData"
+                  [labels]="lineChartLabels"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  >
+                </canvas>
+              </div>      
+              
+              
+  
+              
+            </div>
+
+            <div>
+                <h6>Stats</h6>
+                <br>
+                <div class="row justify-content-center" *ngFor="let details of details">
+                    <div class="f col-3 text-left">
+                        <b>Open: </b> 
+                        <br>
+                        {{details.fields.current_market_price}}
+                    </div>
+                    <!-- <div class="f col-3 text-left">
+                        <b>Close:</b> 
+                        <br>
+                        {{Close}}
+                    </div> -->
+                    <div class="f col-3 text-left">
+                      <b> Lower circuit:</b>
+                        <br>
+                        {{details.fields.lower_limit}}
+                    </div>
+                    <div class="f col-3 text-left">
+                      <b>Upper circuit:</b>
+                        <br>
+                        {{details.fields.upper_limit}}
+                    </div>
+                </div>
+            </div>
+          </form>   
+
+        </div>
+      </div>
+    </div>
+  
+    <!-- <div class="container-fluid mt--7">
+      <div class="card shadow border-0">
+        <div class="card-body text-center" style="height: 600px;">
+          <div class="bgimg">
+            <div class="topleft">
+              <p>Logo</p>
+            </div>
+            <div class="middle">
+              <h1 style="font-size: 4em;">COMING SOON</h1>
+              <hr>
+              <p></p>
+            </div>
+            <div class="middle">
+              <h1 style="font-size: 2em; margin-top: 250px;">{{days}} Days, {{hr}} hours: {{min}} minutes: {{sec}} seconds</h1>
+            </div>
+          </div> 
+        </div>
+      </div> -->
+    <!-- <div class="row">
+      <div class="col">
+       
+      </div>
+    </div> -->
+  </div>
+  

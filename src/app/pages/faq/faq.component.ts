@@ -15,8 +15,9 @@ export class FaqComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.requestStarted();
-    this.http.get<any>("https://django.ecell.in/vsm/faq/").subscribe(
+    this.http.get<any>("https://api6.ecell.in/vsm/faq/").subscribe(
       data => {
+        console.log(data)
         this.faqs = data.reverse();
         this.spinner.requestEnded();
       }

@@ -1,11 +1,20 @@
-<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(assets/img/icons/common/stonk.jpg); background-size: cover; background-position: center top;">
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 300px; background-image: url(assets/img/icons/common/stonk.jpg); background-size: cover; background-position: center top;">
   <!-- Mask -->
-  <span class="mask opacity-8" style="background: linear-gradient(to right,#673400, #834200, #964b00, #a4550a, #b6551d);"></span>
+  <!-- <span class="mask opacity-8" style="background: linear-gradient(to right,#673400, #834200, #964b00, #a4550a, #b6551d);"></span> -->
   <!-- Header container -->
   <div class="container-fluid d-flex align-items-center">
     <div class="row">
       <div class="col-lg-7 col-md-10">
-        <h1 class="display-2 text-white">Hello {{fname}} {{lname}}</h1>
+        <h1 class="display-2 text-white" style=" font-weight: 300;
+        font-size: 2rem;
+        letter-spacing: -0.094rem;
+        padding-left:10px;
+        background: rgba(0,0,0,0.6);
+        text-transform: none;
+        line-height: 3rem;
+        margin-top: 1.75rem;
+        margin-bottom: 3.5rem;
+    ;">Hello {{fname}} {{lname}}</h1>
         <!-- <p class="text-white mt-0 mb-5">ssss</p> -->
         <!-- <a (click)="update_profile()" class="btn btn-info">Edit profile</a> -->
       </div>
@@ -37,7 +46,7 @@
             <div class="col">
               <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                 <div>
-                  <span class="heading">--</span>
+                  <span class="heading">{{count}}</span>
                   <span class="description">Holdings</span>
                 </div>
                 <div>
@@ -48,21 +57,21 @@
             </div>
           </div>
           <div class="text-center">
-            <h3>
+            <h3 style="font-size: 2rem;" class="m-0">
               {{fname}} {{lname}}
             </h3>
-            <div class="h5 font-weight-300">
-              <i class="ni location_pin mr-2"></i>{{city}}<span *ngIf="zip" class="font-weight-light">, {{zip}}</span>
-            </div>
+            <!-- <div class="h5 font-weight-300" *ngIf="city!='null'">
+              <i class="ni location_pin mr-2"></i>{{city}}<span *ngIf="zip!='null'" class="font-weight-light">, {{zip}}</span>
+            </div> -->
             <!-- <div class="h5 mt-4">
               <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
             </div> -->
             <!-- <div>
               <i class="ni education_hat mr-2"></i>University of Computer Science
             </div> -->
-            <hr class="my-2" />
+            <!-- <hr class="my-2" />
             <p>To earn a bonus of <strong> {{ 100000 | currency: 'INR'}}</strong></p>
-            <a href="bonus" class="btn btn-info">Click here</a>
+            <a href="bonus" class="btn btn-info">Click here</a> -->
           </div>
         </div>
       </div>
@@ -72,7 +81,7 @@
         <div class="card-header bg-white border-0">
           <div class="row align-items-center">
             <div class="col-8">
-              <h3 class="mb-0">My account</h3>
+              <h3 class="m-0" style="font-size: 2rem;">My account</h3>
             </div>
           </div>
         </div>
@@ -109,7 +118,7 @@
                 </div>
               </div>
             </div>
-            <hr class="my-4" />
+            <!-- <hr class="my-4" />
             <h6 class="heading-small text-muted mb-4">Demographic information</h6>
             <div class="pl-lg-4">
               <div class="row">
@@ -126,7 +135,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <hr class="my-4" />
             <!-- Address -->
             <h6 class="heading-small text-muted mb-4">IIT Bombay track information</h6>

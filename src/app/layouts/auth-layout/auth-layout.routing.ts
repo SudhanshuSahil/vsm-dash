@@ -7,5 +7,5 @@ import { SecLoginComponent } from 'src/app/pages/sec-login/sec-login.component';
 export const AuthLayoutRoutes: Routes = [
     { path: 'login',          component: LoginComponent },
     { path: 'sec/login',          component: SecLoginComponent },
-    // { path: 'register',       component: RegisterComponent }
+    { path: 'register',       component: RegisterComponent }
 ];

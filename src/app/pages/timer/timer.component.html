@@ -1,12 +1,12 @@
 <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 450px; background-image: url(assets/img/icons/common/nasdaq.jpg); background-size: cover; background-position: center top;">
   <!-- Mask -->
-  <span class="mask" style="background: linear-gradient(to right,#673400, #834200, #964b00, #a4550a, #b6551d); opacity: 0.6;"></span>
+  <!-- <span class="mask" style="background: linear-gradient(to right,#673400, #834200, #964b00, #a4550a, #b6551d); opacity: 0.6;"></span> -->
   <!-- Header container -->
   <div class="container-fluid d-flex align-items-center">
     <div class="row">
       <div class="col-lg-8 col-md-10">
         <!-- <img  src="assets/img/icons/common/5paisa.png"> -->
-        <h1 class="display-2 text-white">5paisa</h1>
+        <!-- <h1 class="display-2 text-white">5paisa</h1> -->
         <!-- <p class="text-white mt-0 mb-5">ssss</p> -->
         <!-- <a (click)="update_profile()" class="btn btn-info">Edit profile</a> -->
       </div>
@@ -14,84 +14,119 @@
   </div>
 </div>
   <div class="container-fluid mt--7">
-    <div class="row">
-      <div class="col-xl-7">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
         <div class="card shadow">
           <div class="card-header bg-transparent">
             <div class="row align-items-center">
               <div class="col">
-                <h6 class="text-uppercase text-muted ls-1 mb-1">Guidelines</h6>
-                <h2 class="mb-0">How to get bonus points?</h2>
+                <h6 class="text-uppercase text-center ls-1 mb-1 mt-0" style="font-size: 2rem;line-height: inherit;">Sponsors</h6>
+                <!-- <h2 class="mb-0 mt-0" style="font-size: 1.5rem;line-height: inherit;">How to get extra Virtual Cash?</h2> -->
               </div>
             </div>
           </div>
           <div class="card-body">
             <div class="chart" style="height: auto;">
                 <!-- Chart wrapper -->
-                <h4>Follow the following steps for bonus points</h4>
-                <ul>
-                  <li>Click on the Open Demat Account tab with 5paisa and open your Demat account</li>
+                <!-- <h4  class="mt-0" style="font-size: 1.5rem;line-height: inherit;">Follow the following steps for bonus points</h4> -->
+                <!-- <ul>
+                  <li>Click on the Open Demat Account tab with <img src="https://assets.upstox.com/common/images/upstox-logo-primary.svg" alt=""> and open your Demat account </li>
                   <li>After successfully completing Demat account process, Put your USER ID of Demat account in the tab below and click on the claim button.</li>
-                  <li>If you already have 5paisa Demat account then directly put your Demat account User ID in the below tab and claim.</li>
-                  <li>Additional 1,00,000 Virtual Money will automatically added to your account within 24hours.</li>
-              </ul> 
+                  <li>If you already have <img src="https://assets.upstox.com/common/images/upstox-logo-primary.svg" alt=""> Demat account then directly put your Demat account User ID in the below tab and claim.</li>
+                  <li>Additional 2,50,000 Virtual Money will automatically added to your account within 24hours.</li>
+
+              </ul>  -->
+                  <div class="row justify-content-center">
+                    <div class="col-md-3  justify-content-center text-center" *ngFor="let s of sponsors">
+                      <a href={{s.url}} target="_blank">
+                        <img src={{s.email}} style="height: 140px;" alt="vsm">
+                      </a>
+                      <p class="text-center text-uppercase">{{s.name}}</p>
+                    </div>
+                  </div>
+            </div>  
+            <hr>
+            
+            <div class="card-header bg-transparent">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h6 class="text-uppercase text-center ls-1 mb-1 mt-0" style="font-size: 2rem;line-height: inherit;">Media Partners</h6>
+                  <!-- <h2 class="mb-0 mt-0" style="font-size: 1.5rem;line-height: inherit;">How to get extra Virtual Cash?</h2> -->
+                </div>
+              </div>
             </div>
-            <form (onSubmit)="update_profile()">
-              <!-- <h6 class="heading-small text-muted mb-4">User information</h6> -->
+            <div class="card-body">
+              <div class="chart" style="height: auto;">
+                  <!-- Chart wrapper -->
+                  <!-- <h4  class="mt-0" style="font-size: 1.5rem;line-height: inherit;">Follow the following steps for bonus points</h4> -->
+                  <!-- <ul>
+                    <li>Click on the Open Demat Account tab with <img src="https://assets.upstox.com/common/images/upstox-logo-primary.svg" alt=""> and open your Demat account </li>
+                    <li>After successfully completing Demat account process, Put your USER ID of Demat account in the tab below and click on the claim button.</li>
+                    <li>If you already have <img src="https://assets.upstox.com/common/images/upstox-logo-primary.svg" alt=""> Demat account then directly put your Demat account User ID in the below tab and claim.</li>
+                    <li>Additional 2,50,000 Virtual Money will automatically added to your account within 24hours.</li>
+  
+                </ul>  -->
+                    <div class="row justify-content-center">
+                      <div class="col-md-3 justify-content-center text-center" *ngFor="let s of media">
+                        <a href={{s.url}} target="_blank">
+                          <img src={{s.email}} style="height: 140px;" alt="vsm">
+                        </a>
+                        <p class="text-center text-uppercase">{{s.name}}</p>
+                      </div>
+                    </div>
+              </div>
+
+
+
+            <!-- <form (onSubmit)="update_profile()">
               <div class="" style="margin-top: 0px;">
                 <div class="row">
-                  <div class="col-lg-8">
+                  <div class="col-lg-10">
                     <div class="form-group">
-                      <label class="form-control-label" for="input-username">5paisa Demat Account ID</label>
-                      <input type="text" id="input-username" name="acc" [(ngModel)]='demat' class="form-control form-control-alternative" placeholder="5paisa user ID">
+                      <label class="form-control-label" for="input-username">Upstox Associated Email ID</label>
+                      <input type="text" id="input-username" name="acc" [(ngModel)]='demat' class="form-control form-control-alternative" placeholder="Email ID">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-username">Upstox Demat Account ID</label>
+                      <input type="text" id="input-username" name="acc" [(ngModel)]='demat' class="form-control form-control-alternative" placeholder="Demat account ID">
                     </div>
                   </div>
                   <div class="col-lg-4" >
                     <br> <br>
-                    <!-- <label class="form-control-label" for="input-username"></label> -->
-                    <a style="margin-top: -15px;" (click)="update_profile()" class="btn btn-info text-white">Submit for Review</a>
+                    <a style="margin-top: -15px;" (click)="update_profile()" class="btn btn-primary text-white">Submit for Review</a>
                   </div>
                 </div>
               </div>
-            </form>
+            </form> -->
           </div>
         </div>
       </div>
-      <div class="col-xl-5">
+      <!-- <div class="col-xl-5">
         <div class="card shadow">
           <div class="card-header bg-transparent">
             <div class="row align-items-center">
               <div class="col">
-                <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                <a href="https://www.5paisa.com/" target="__blank"><h2 class="text-dark mb-0">5paisa</h2></a>
+                <h6 class="text-uppercase ls-1 mb-1 mt-0" style="font-size: 1rem;line-height: inherit;">Overview</h6>
+                <img src="https://assets.upstox.com/common/images/upstox-logo-primary.svg" style="    height: 30px;" alt="">
               </div>
               <div class="col">
               </div>
             </div>
           </div>
           <div class="card-body">
-            <!-- Chart -->
             <div class="chart" style="height: auto;">
-                <h2>India's Fastest Growing Discount Broker</h2><br>
-                <a href="https://www.5paisa.com/open-demat-account?ReferralCode=IITBSpecial&utm_source=Youngvestor&utm_campaign=VSM" target="__blank" class="btn btn-info">Open Demat Account with 5paisa</a>
-                <br><br>
-                <h4>0%* Brokerage. Flat fee per or der:</h4>
-                <ul>
-                  <li>Zero brokerage, No DP charges & 0 AMC with Pricing Plans</li>
-                  <li>Instant Paperless Trading and Demat Account</li>
-                  <li>Integrated Platform for Stocks, Mutual Fund, Insurance & Advisory</li>
-                  <li>Lightning Fast Trading and Advanced Mobile Application</li>
-              </ul>
-              <h4>Empower yourself with <strong>5paisa Youngvestor Demat Account</strong> and be eligible for below benifits:</h4>
-                <ul>
-                  <li>Zero Account Opening Fee</li>
-                  <li>Zero Brokerage for Delivery & Intraday Trade</li>
-                  <li>Zero Commission on Mutual Fund Investment</li>
-                  <li>ZERO AMC</li>
-              </ul>
+                <img src="https://upstox.com/open-demat-account/open-demat-account-login/assets/images/start-karke-lg.svg" alt="">
+                <br>
+                <h3 style="font-size: 2rem;line-height: inherit;" class="p-0 m-0">With Upstox, it’s easy! </h3>
+                <br>
+                <a  href="https://upstox.com/open-demat-account/open-demat-account-login/?utm_source=VirtualStockMarketIITB&utm_medium=CPC&utm_campaign=VSM2021_Upstox" target="__blank" class="btn btn-primary">Open Demat Account with Upstox</a>
+                <br>
+                <h4 style="font-size: 1.2rem;line-height: inherit;">₹1000 brokerage credit valid for 30 days</h4>
+                <h4 style="font-size: 1.2rem;line-height: inherit;">₹0 brokerage* on Mutual Funds and IPOs</h4>
+                <h4 style="font-size: 1.2rem;line-height: inherit;">Up to ₹20/order on Equity, F&O, Commodity and Currency</h4>
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     </div>

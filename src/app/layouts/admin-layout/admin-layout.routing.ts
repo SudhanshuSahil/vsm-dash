@@ -13,6 +13,7 @@ import { HoldingComponent } from 'src/app/pages/holding/holding.component';
 import { TransacComponent } from 'src/app/pages/transac/transac.component';
 import { NewsComponent } from 'src/app/pages/news/news.component';
 import { LeaderboardComponent } from 'src/app/pages/leaderboard/leaderboard.component';
+import { ChartComponent } from 'src/app/pages/chart/chart.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -21,11 +22,12 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'faq',           component: FaqComponent },
-    { path: 'sponsor',           component: SponserComponent },
+    { path: 'resources',           component: SponserComponent },
     { path: 'market',           component: MarketComponent },
     { path: 'bonus',           component: TimerComponent },
     { path: 'holding',           component: HoldingComponent },
     { path: 'transac',           component: TransacComponent },
     { path: 'news',           component: NewsComponent },
     { path: 'leaderboard',           component: LeaderboardComponent },
+    { path: 'charts', component: ChartComponent},
 ];

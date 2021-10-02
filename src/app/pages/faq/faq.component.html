@@ -1,6 +1,6 @@
-<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 450px; background-image: url(assets/img/icons/common/nasdaq.jpg); background-size: cover; background-position: center top;">
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 400px; background-image: url(assets/img/icons/common/nasdaq.jpg); background-size: cover; background-position: center top;">
   <!-- Mask -->
-  <span class="mask" style="background: linear-gradient(to right,#673400, #834200, #964b00, #a4550a, #b6551d); opacity: 0.6;"></span>
+  <!-- <span class="mask" style="background: linear-gradient(to right,#673400, #834200, #964b00, #a4550a, #b6551d); opacity: 0.6;"></span> -->
   <!-- Header container -->
   <div class="container-fluid d-flex align-items-center">
     <div class="row">
@@ -16,9 +16,24 @@
 <div class="container-fluid mt--7">
   <div *ngFor="let i of faqs" class="card shadow border-0" style="margin-top: 4em;">
     <div class="card-body" style="min-height: 150px;">
-      <strong>Q. {{i.que}}</strong>
-      <br><br>
-      <span [innerHTML]="i.ans">{{i.ans}}</span>
+      <strong  class="m-0">Q. </strong> <span [innerHTML]="i.que" class="m-0"> {{i.que}}</span>
+      <hr>
+      <strong>A. </strong><span [innerHTML]="i.ans"> {{i.ans}}</span>
+    </div>
+  </div>
+  <div *ngIf="faqs.length==0" class="card shadow border-0" style="margin-top: 4em;">
+    <div class="container h-100" style="padding-top: 8em; padding-bottom: 8em;">
+      <div class="row h-100 justify-content-center align-items-center text-center">
+        <form class="col-12">
+          <div class="form-group">
+            <h1 style="font-size: 2em;">COMING SOON</h1>
+            <!-- <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input"> -->
+          </div>
+          <!-- <hr> -->
+          <!-- <div class="form-group py-4"> 
+          </div> -->
+        </form>   
+      </div>
     </div>
   </div>
 </div>

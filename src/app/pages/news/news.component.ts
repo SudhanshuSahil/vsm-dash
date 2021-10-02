@@ -18,7 +18,7 @@ export class NewsComponent implements OnInit, OnDestroy {
 
   constructor(private http: HttpClient, private spinner: SpinnerService) { }
   ngOnDestroy(): void {
-    this.subs.unsubscribe()
+    // this.subs.unsubscribe()
   }
 
   ngOnInit(): void {
@@ -55,64 +55,64 @@ export class NewsComponent implements OnInit, OnDestroy {
       var end_time = new Date('2020-08-21 22:00:00')
     }
 
-    this.http.get<any>('https://django.ecell.in/vsm/news/').subscribe(
+    this.http.get<any>('https://api6.ecell.in/vsm/news/').subscribe(
       data => {      
           
-        this.spinner.requestEnded();
 
-
+        console.log(data)
         this.all_news = data
-        var current_time = new Date();
+        this.spinner.requestEnded();
+        // var current_time = new Date();
     
-        var diff = current_time.getTime() - start_time.getTime()
+        // var diff = current_time.getTime() - start_time.getTime()
         
-        var minutes = base_min + Math.floor(diff / (60 * 1000)) ;
-        console.log('minutes into game', minutes);
-        var l = minutes;
+        // var minutes = base_min + Math.floor(diff / (60 * 1000)) ;
+        // console.log('minutes into game', minutes);
+        // var l = minutes;
 
-        if ( current_time.getTime() > end_time.getTime()){
-          minutes = base_min + 60
-        }
+        // if ( current_time.getTime() > end_time.getTime()){
+        //   minutes = base_min + 60
+        // }
         
-        this.all_news.forEach(element => {
+        // this.all_news.forEach(element => {
           // console.log(element['show_id'])
-          if( element['show_id'] <= minutes){
-            var n = {content: "<h3>" + element['title'] + "</h3> <br>" + element['content']}
-            var m = this.news.length            
-            this.news.splice(m-1, 0 , n)
-          }
-        });
+          // if( element['show_id'] <= minutes){
+            // var n = {content: "<h3>" + element['title'] + "</h3> <br>" + element['content']}
+            // var m = this.news.length            
+            // this.news.splice(m-1, 0 , n)
+          // }
+        // });
 
-        if ( current_time.getTime() > end_time.getTime()){
-          minutes = base_min + 60;
-          return;
-        }
+        // if ( current_time.getTime() > end_time.getTime()){
+        //   minutes = base_min + 60;
+        //   return;
+        // }
 
-        var i = 0
-        const source = interval(1000);
-        this.subs = source.subscribe(val => {
-          var current_time = new Date();
+        // var i = 0
+        // const source = interval(1000);
+        // this.subs = source.subscribe(val => {
+        //   var current_time = new Date();
           
-          var diff = current_time.getTime() - start_time.getTime()
+        //   var diff = current_time.getTime() - start_time.getTime()
         
-          var minutes = base_min + Math.floor(diff / (60 * 1000)) ;
-          console.log('inside loop', minutes);
+        //   var minutes = base_min + Math.floor(diff / (60 * 1000)) ;
+        //   console.log('inside loop', minutes);
 
-          if ( current_time.getTime() > end_time.getTime()){
-            minutes = base_min + 60;
-            return;
-          }          
+        //   if ( current_time.getTime() > end_time.getTime()){
+        //     minutes = base_min + 60;
+        //     return;
+        //   }          
 
-          this.all_news.forEach(element => {
-            // console.log(element['show_id'])
-            if( element['show_id'] == minutes && minutes != l){
-              l = minutes;
-              var n = {content: "<h3>" + element['title'] + "</h3> <br>" + element['content']}
-              this.news.splice(0,0,n)
-            }
-          });
+          // this.all_news.forEach(element => {
+          //   // console.log(element['show_id'])
+          //   if( element['show_id'] == minutes && minutes != l){
+          //     l = minutes;
+          //     var n = {content: "<h3>" + element['title'] + "</h3> <br>" + element['content']}
+          //     this.news.splice(0,0,n)
+          //   }
+          // });
 
-        })
+        // })
         
       },
       error => {

@@ -9,7 +9,7 @@ import { SpinnerService } from 'src/app/spinner/spinner.service';
 })
 export class LeaderboardComponent implements OnInit {
 
-  leaders;
+  leaders = [];
   iitb;
   a = false;
   b = false;
@@ -18,43 +18,63 @@ export class LeaderboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.spinner.requestStarted();
+    // this.spinner.requestStarted();
 
     var header = new HttpHeaders({
-      'Authorization': "Bearer " + localStorage.getItem('token') 
+      'Authorization': "Token " + localStorage.getItem('token') 
     });
 
-    this.http.get<any>('https://django.ecell.in/vsm/leaders/', {headers: header}).subscribe(
+
+
+    this.http.get<any>('https://api3.ecell.in/vsm/leader/').subscribe(
       data => {        
-        // console.log(data)
-        this.leaders = data
-        this.a = true;
-        if (this.b){
-          this.spinner.requestEnded();
+        console.log(data)
+        // this.leaders = data
+
+        this.spinner.requestEnded();
+
+        if (data.value){
+                 this.http.get<any>('https://api5.ecell.in/vsm/leaders/', {headers: header}).subscribe(
+                  data => {        
+                    console.log(data)
+                    this.leaders = data
+                    this.a = true;
+                    // if (this.b){
+                    this.spinner.requestEnded();
+                    // }
+                  },
+                  error => {
+                    console.error(error);
+                    
+                  }
+                )
+
         }
-      },
-      error => {
-        console.error(error);
+       
         
-      }
+          },
+          error => {
+            console.error(error);
+            
+          }
     )
 
-    this.http.get<any>('https://django.ecell.in/vsm/leaders-iitb/', {headers: header}).subscribe(
-      data => {        
-        // console.log(data)
-        this.iitb = data
-        this.b = true;
-        if (this.a){
-          this.spinner.requestEnded();
-        }
-      },
-      error => {
-        console.error(error);
+    
+
+    // this.http.get<any>('https://api5.ecell.in/vsm/leaders-iitb/', {headers: header}).subscribe(
+    //   data => {        
+    //     // console.log(data)
+    //     this.iitb = data
+    //     this.b = true;
+    //     if (this.a){
+    //       this.spinner.requestEnded();
+    //     }
+    //   },
+    //   error => {
+    //     console.error(error);
         
-      }
-    )
-
-
+    //   }
+    // )
   }
 
 }

@@ -6,8 +6,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Brand -->
-    <a class="navbar-brand pt-0" href="https://www.ecell.in/2019/" target="_blank">
-      <img src="assets/img/icons/common/black_logo.png" class="navbar-brand-image logo" alt="E-Cell"></a>
+    <a class="navbar-brand pt-0" href="https://upstox.com/" target="_blank">
+      <img src="./assets/img/incentive-Gold_Sponsor-None-_ZR5mpEk.png" class="navbar-brand-image logo" alt="E-Cell" style="padding-top: 50px;
+      padding-bottom: 50px;">
+      <br>
+      <!-- <img *ngIf="!show"  src="./assets/img/Vsm-Logo-Only.png" alt="vsm" style="margin-top: -70px;"> -->
+    </a>
       <span *ngIf="!game_time" class="logo-inverse">Market Closed</span>
       <span *ngIf="game_time" class="logo-inverse">Market Open</span>
 
@@ -80,8 +84,14 @@
       </div>
       <!-- Navigation -->
       <ul style="margin-top: -4rem;" class="navbar-nav">
+        <li   *ngIf="show" class="nav-item" style="font-size: 24px;
+        padding: 10px;
+        margin-top: 0px;">
+          VSM
+        </li>
           <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-              <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
+            <!-- [href]="[menuItem.path]" -->
+              <a routerLinkActive="active" (click)="send([menuItem.path])" style="cursor: pointer;" class="nav-link">
                   <i class="ni {{menuItem.icon}}"></i>
                   {{menuItem.title}}
               </a>
@@ -90,9 +100,9 @@
       <!-- Divider -->
       <hr class="my-3">
       <!-- Heading -->
-          <a class="navbar-brand pt-0" href="https://www.5paisa.com/" target="_blank">
-      <img src="assets/img/icons/common/5paisa.png" style="max-width: 200px; margin-top: 4vh;" class="navbar-brand-image logo" alt="..."></a>
-      <h6 style="position: absolute; margin-top: 4vh;" style="margin-bottom: 0px;" class="navbar-heading text-muted text-center logo">Title Sponsor</h6>
+          <a class="navbar-brand pt-0" target="_blank">
+      <img src="./assets/img/stocktwits-logomark-black.png" style="max-width: 200px; margin-top: -30px;" class="navbar-brand-image logo" alt="vsm"></a>
+      <!-- <h6 style="position: absolute; margin-top: 4vh;" style="margin-bottom: 0px;" class="navbar-heading text-muted text-center logo">Sponsor</h6> -->
 
     </div>
   </div>

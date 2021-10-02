@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, interval } from 'rxjs';
 import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
+import { HttpClient } from '@angular/common/http';
+import { SpinnerService } from 'src/app/spinner/spinner.service';
+
 
 @Component({
   selector: 'app-sponser',
@@ -17,38 +20,46 @@ export class SponserComponent implements OnInit {
   min;
   sec;
 
-  constructor() { }
-
-  ngOnInit(): void {
-    this.countDownDate = new Date("August 21, 2020 21:00:00").getTime();
-    var now = new Date().getTime();
-
-    var distance = this.countDownDate - now;
-    this.time = distance/100;
-
-    const source = interval(1000);
-    source.subscribe(val => this.callFunc())
+  constructor(private http: HttpClient,) { 
 
   }
 
-  callFunc(){
-    var now = new Date().getTime();
-    var distance = this.countDownDate - now;
-    distance /= 1000;
-    this.time = distance;
-    var days: number = Math.floor (distance / (24 * 3600))
-    distance -= days * 24 * 3600
-    var hr: number = Math.floor(distance / 3600);
-    var min: number = Math.floor( (distance - hr*3600)/60 );
-    var seconds: number = Math.floor( (distance - hr*3600 - min*60));
-    // console.log(days, hr, min, seconds)
-    this.days = days;
-    this.hr = hr;
-    this.min = min;
-    this.sec = seconds;
+  temp =[];
 
-    // console.log(distance);
+  ngOnInit() {
+
+    var retrievedObject = localStorage.getItem('resource');
+    if (retrievedObject !=null){
+      console.log('retrievedObject');
+      this.temp  = JSON.parse(retrievedObject);
+      this.http.get<any>('https://api3.ecell.in/vsm/resource/').subscribe(
+        data => {  
+          // console.log(data)
+          localStorage.setItem('resource', JSON.stringify(data));
+          console.log('from server');
+        },
+        err=>{
+          console.log(err)
+        }
+
+      )
+    }
+    else{
+      this.http.get<any>('https://api3.ecell.in/vsm/resource/').subscribe(
+      data => {  
+        console.log(data)
+        this.temp= data
+        localStorage.setItem('resource', JSON.stringify(data));
+        console.log('from server');
+      },
+      err=>{
+        console.log(err)
+      }
+
+    )
+    }
     
+
   }
 
 }

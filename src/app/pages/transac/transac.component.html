@@ -1,6 +1,6 @@
-<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(assets/img/icons/common/stonk.jpg); background-size: cover; background-position: center top;">
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 400px; background-image: url(assets/img/icons/common/stonk.jpg); background-size: cover; background-position: center top;">
   <!-- Mask -->
-  <span class="mask opacity-8" style="background: linear-gradient(to right,#673400, #834200, #964b00, #a4550a, #b6551d);"></span>
+  <!-- <span class="mask opacity-8" style="background: linear-gradient(to right,#673400, #834200, #964b00, #a4550a, #b6551d);"></span> -->
   <!-- Header container -->
   <div class="container-fluid d-flex align-items-center">
     <div class="row">
@@ -14,23 +14,23 @@
   <!-- Page content -->
   <div class="container-fluid mt--7">
     <!-- Table -->
-    <div class="row">
-      <div class="col">
+    <div class="row justify-content-center">
+      <div class="col-11">
         <div class="card shadow">
           <div class="card-header border-0">
-            <h3 class="mb-0">Transactions</h3>
-            <h5>List of transactions you have made over the course of the game</h5>
+            <h3 class="mb-0 mt-0" style="font-size: 1.5rem;line-height: inherit;">Transactions</h3>
+            <h5 class="m-0" style="font-size: 1rem;">List of transactions you have made over the course of the game</h5>
           </div>
           <div class="table-responsive">
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
                   <th scope="col">Name</th>
-                  <th scope="col">Code</th>
-                  <th scope="col">Bid Price</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">Type</th>
-                  <!-- <th scope="col"></th> -->
+                  <th scope="col" class="text-center">Code</th>
+                  <th scope="col" class="text-center">Ask/Bid Price</th>
+                  <th scope="col" class="text-center">Trade Volume Quantity</th>
+                  <th scope="col" class="text-center">Type</th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
 
@@ -46,22 +46,22 @@
                       </div>
                     </div>
                   </th>
-                  <td>
+                  <td class="text-center">
                     {{company.company_code}}
                   </td>
-                  <td>
+                  <td class="text-center">
                     {{ company.bid_price | currency:'INR'}}
                   </td>
-                  <td>
+                  <td class="text-center">
                       {{company.quantity}}
                   </td>
-                  <td>
+                  <td class="text-center">
                     {{ company.transaction_type }}
                   </td>
-                  <!-- <td class="text-right">
+                  <td class="text-right">
                       <button *ngIf="company.verified" class="btn btn-success">Accepted</button>
                       <button *ngIf="!company.verified" class="btn btn-danger">Rejected</button>
-                  </td> -->
+                  </td>
                 </tr>
               </tbody>
             </table>

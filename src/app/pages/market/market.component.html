@@ -1,6 +1,6 @@
 <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 450px; background-image: url(assets/img/icons/common/nasdaq.jpg); background-size: cover; background-position: center top;">
   <!-- Mask -->
-  <span class="mask" style="background: linear-gradient(to right,#673400, #834200, #964b00, #a4550a, #b6551d); opacity: 0.6;"></span>
+  <!-- <span class="mask" style="background: linear-gradient(to right,#673400, #834200, #964b00, #a4550a, #b6551d); opacity: 0.6;"></span> -->
   <!-- Header container -->
   <div class="container-fluid">
     <div class="header-body">
@@ -11,7 +11,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Cash</h5>
+                  <h5 class="card-title text-uppercase text-muted mb-0 mt-0" style="font-size: 1rem;">Cash</h5>
                   <span class="h2 font-weight-bold mb-0">{{cash}}</span>
                 </div>
                 <div class="col-auto">
@@ -20,9 +20,10 @@
                   </div>
                 </div>
               </div>
-              <a href="bonus"><p class="mt-3 mb-0 text-muted text-sm">
-                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i></span>
-                <span class="text-nowrap">Get 1 lac extra cash</span>
+              <!-- href="bonus" -->
+              <a ><p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-success mr-2"></span>
+                <span class="text-nowrap"></span>
               </p></a>
             </div>
           </div>
@@ -376,10 +377,10 @@
     </div> -->
     <!-- Dark table -->
     <div class="row mt-5">
-      <div class="col-xl-6">
+      <div class="col-xl-7">
         <div class="card shadow">
           <div class="card-header border-0">
-            <h3 class="mb-0">All Companies</h3>
+            <h3 class="mb-0 mt-0" style="font-size: 1.5rem;line-height: inherit;">All Companies</h3>
           </div>
           <div class="table-responsive">
             <table class="table align-items-center table-flush">
@@ -387,8 +388,8 @@
                 <tr>
                   <th scope="col">Company Name</th>
                   <th scope="col">Price</th>
-                  <!-- <th scope="col">Change</th> -->
-                  <th scope="col">Code</th>
+                  <th scope="col">Change</th>
+                  <!-- <th scope="col">Code</th> -->
                   <th scope="col"></th>
                 </tr>
               </thead>
@@ -399,22 +400,28 @@
                       <!-- <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
                         <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
                       </a> -->
-                      <div class="media-body">
-                        <span class="mb-0 text-sm">{{company.name}}</span>
+                      <div class="media-body" style="cursor: pointer;" (click)="chart(company.company.code)">
+                        <span class="mb-0 text-sm">{{company.company.name}}</span>
+                        <br>
+                        ({{company.company.code}})
                       </div>
                     </div>
                   </th>
                   <td>
-                    {{ company.current_market_price | currency:'INR'}}
+                    {{ company.company.current_market_price | currency:'INR'}}
+                    
+                  </td>
+                  <td>
+                    <span *ngIf="company.company.change<0" class="text-red">{{company.company.change | currency:'INR'}} ({{company.company.percent}} %) <i class="fa fa-arrow-down"> </i> </span>
+                    <span *ngIf="company.company.change>0" class="text-success"> {{company.company.change | currency:'INR'}} ({{company.company.percent}} %) <i class="fa fa-arrow-up"></i></span>
+                    <span *ngIf="company.company.change==0" class="text-warning">{{company.company.change | currency:'INR'}} ({{company.company.percent}} %) </span>
                   </td>
                   <!-- <td>
-                    {{company.change}}
-                  </td> -->
-                  <td>
                     {{company.code}}
-                  </td>
+                  </td> -->
                   <td class="text-right">
-                      <button (click)="bid(company)" class="btn btn-primary">Buy</button>
+                      <button (click)="bid(company.company)" class="btn btn-success">Buy</button>
+                      <button (click)="check(company.company)" class="btn btn-danger">Sell</button>
                   </td>
                 </tr>
               </tbody>
@@ -424,30 +431,32 @@
           </div>
         </div>
       </div>
-      <div class="col-xl-6">
+      <div class="col-xl-5">
         <div class="card shadow">
           <div class="card-header border-0">
-            <h3 class="mb-0">Recent News</h3>
+            <h3 class="mb-0 mt-0" style="font-size: 1.5rem;line-height: inherit;">Recent News</h3>
           </div>
           <div class="table-responsive">
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
-                  <th scope="col">Company</th>
+                  <th scope="col">Title</th>
                   <th scope="col">Headlines</th>
                   <!-- <th scope="col">Price</th> -->
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let n of news | slice:0:100">
+                <tr *ngFor="let n of all_news | slice:0:100">
                   <td>
                     <div class="media align-items-center">
                       <div class="media-body">
-                        <span class="mb-0 text-sm"> <strong>{{n.title}}</strong> <br> {{n.content}}</span>
+                        <!-- <span class="mb-0 text-sm"> <strong>{{n.title}}</strong> <br> {{n.content}}</span> -->
+                        <span class="mb-0 text-sm"> <strong>{{n.title}}</strong> </span>
+
                       </div>
                     </div>
                   </td>
-                  <td>
+                  <td style="white-space: initial;" class="no-white-space">
                     <div class="media align-items-center">
                       <div class="media-body">
                         <span class="mb-0 text-sm">{{n.content}}</span>

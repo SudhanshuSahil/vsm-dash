@@ -2,11 +2,11 @@
   <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
     <div class="container px-4">
       <a class="navbar-brand" routerLinkActive="active" href="https://ecell.in/" target="__blank">
-        <img src="assets/img/icons/common/black_logo.png" style="width: 150px; height: 150px;" />
+        <img src="https://www.ecell.in/tinder/assets/img/E-Cell%20Logo-White.png" style="width: 100px; height: 100px;" />
       </a>
       <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed"
          aria-controls="sidenav-collapse-main">
-        <span style="background-image: url('assets/img/icons/common/2paisa.png'); width: 5.5em; height: 4.5em;" class="navbar-toggler-icon"></span>
+        <!-- <span style="background-image: url('assets/img/icons/common/2paisa.png'); width: 5.5em; height: 4.5em;" class="navbar-toggler-icon"></span> -->
       </button>
       <div class="collapse navbar-collapse"  [ngbCollapse]="isCollapsed" id="sidenav-collapse-main">
         <!-- Collapse header -->
@@ -39,12 +39,12 @@
               <span class="nav-link-inner--text">Register</span>
             </a>
           </li> -->
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link nav-link-icon" routerLinkActive="active" href="https://5paisa.com" target="__blank">
-              <!-- <i class="ni ni-key-25"></i> -->
+              <i class="ni ni-key-25"></i>
               <span class="nav-link-inner--text"><img style="width: 100px;" src="assets/img/icons/common/2paisa.png"></span>
             </a>
-          </li>
+          </li> -->
           <!-- <li class="nav-item">
             <a class="nav-link nav-link-icon" routerLinkActive="active" [routerLink]="['/user-profile']">
               <i class="ni ni-single-02"></i>
@@ -57,22 +57,23 @@
   </nav>
   <router-outlet></router-outlet>
 </div>
-<footer style="position: relative; bottom: 0; margin-top: 16vh;" class="py-5">
+<footer style="width:100vw; " class="py-5">
+  <!-- margin-top: 16vh; -->
   <div class="container">
     <div class="row align-items-center justify-content-xl-between">
       <div class="col-xl-6">
         <div class="copyright text-center text-xl-left text-muted">
-          &copy; Web Team 2020 | E-Cell
+          &copy; Web Team 2021 | E-Cell
         </div>
       </div>
       <div class="col-xl-6">
         <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="/" class="nav-link" target="_blank">E-Cell</a>
           </li>
           <li class="nav-item">
             <a href="/enspace" class="nav-link" target="_blank">Blog</a>
-          </li>
+          </li> -->
           <!-- <li class="nav-item">
             <a href="#" class="nav-link" target="_blank">Developers</a>
           </li> -->

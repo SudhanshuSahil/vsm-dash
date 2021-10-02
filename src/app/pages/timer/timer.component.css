@@ -1,0 +1,7 @@
+.col-md-3 {
+    padding: 15px;
+    border: black solid;
+    border-block-width: 2px 10px;
+    border-radius: 17px;
+    margin:  15px;
+}

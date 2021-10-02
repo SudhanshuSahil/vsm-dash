@@ -1,6 +1,6 @@
 <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 450px; background-image: url(assets/img/icons/common/nasdaq.jpg); background-size: cover; background-position: center top;">
   <!-- Mask -->
-  <span class="mask" style="background: linear-gradient(to right,#673400, #834200, #964b00, #a4550a, #b6551d); opacity: 0.6;"></span>
+  <!-- <span class="mask" style="background: linear-gradient(to right,#673400, #834200, #964b00, #a4550a, #b6551d); opacity: 0.6;"></span> -->
   <!-- Header container -->
   <div class="container-fluid">
     <div class="header-body">
@@ -11,7 +11,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Cash</h5>
+                  <h5 class="card-title text-uppercase text-muted mb-0 mt-0" style="font-size: 1rem;">Cash</h5>
                   <span class="h2 font-weight-bold mb-0">{{cash}}</span>
                 </div>
                 <div class="col-auto">
@@ -20,9 +20,10 @@
                   </div>
                 </div>
               </div>
-              <a href="bonus"><p class="mt-3 mb-0 text-muted text-sm">
-                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i></span>
-                <span class="text-nowrap">Get 1 lac extra cash</span>
+              <!-- href="bonus" -->
+              <a ><p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-success mr-2"></span>
+                <span class="text-nowrap"></span>
               </p></a>
             </div>
           </div>
@@ -32,7 +33,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Number of Holdings</h5>
+                  <h5 class="card-title text-uppercase text-muted mb-0  mt-0" style="font-size: 1rem;">Number of Holdings</h5>
                   <span class="h2 font-weight-bold mb-0">{{count}}</span>
                 </div>
                 <div class="col-auto">
@@ -53,7 +54,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Holding Value</h5>
+                  <h5 class="card-title text-uppercase text-muted mb-0  mt-0" style="font-size: 1rem;">Holding Value</h5>
                   <span class="h2 font-weight-bold mb-0">{{net}}</span>
                 </div>
                 <div class="col-auto">
@@ -74,7 +75,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Net Worth</h5>
+                  <h5 class="card-title text-uppercase text-muted mb-0 mt-0" style="font-size: 1rem;">Net Worth</h5>
                   <span class="h2 font-weight-bold mb-0">{{net_worth}}</span>
                 </div>
                 <div class="col-auto">
@@ -103,10 +104,10 @@
         <div class="card-header border-0">
           <div class="row align-items-center">
             <div class="col">
-              <h3 class="mb-0">Holdings</h3>
+              <h3 class="mb-0 mt-0" style="font-size: 1.5rem;line-height: inherit;">Holdings</h3>
             </div>
             <div class="col text-right">
-              <a href="holding" class="btn btn-sm btn-primary">See all</a>
+              <!-- <a href="holding" class="btn btn-sm btn-primary">See all</a> -->
             </div>
           </div>
         </div>
@@ -150,10 +151,10 @@
         <div class="card-header border-0">
           <div class="row align-items-center">
             <div class="col">
-              <h3 class="mb-0">Recent Transactions</h3>
+              <h3 class="mb-0 mt-0" style="font-size: 1.5rem; line-height: inherit;">Recent Transactions</h3>
             </div>
             <div class="col text-right">
-              <a href="transac" class="btn btn-sm btn-primary">See all</a>
+              <!-- <a href="transac" class="btn btn-sm btn-primary">See all</a> -->
             </div>
           </div>
         </div>
@@ -164,6 +165,7 @@
               <tr>
                 <th scope="col">Code</th>
                 <th scope="col">Value</th>
+                <th scope="col">Type</th>
                 <th scope="col">Quantity</th>
               </tr>
             </thead>
@@ -174,6 +176,9 @@
                 </th>
                 <td>
                   {{trans.bid_price}}
+                </td>
+                <td>
+                  {{trans.transaction_type}}
                 </td>
                 <td>
                   {{trans.quantity}}
